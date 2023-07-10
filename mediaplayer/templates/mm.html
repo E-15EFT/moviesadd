@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+    {% load static  %}
+    {% load pwa %}
+    {% progressive_web_app_meta %} 
+    {% block box %}
+    <script defer type="text/javascript" src="{% static 'script.js' %}"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet" />
+<!-- ------------smpt---- -->
+<script defer type="text/javascript" src="{% static 'serviceworker.js' %}"></script>
+<!-- ---------------cdn animation--- -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+  </head>
+<style>
+   #searchbar{
+     margin-left: 15%;
+     padding:8px;
+     border-radius: 10px;
+   }
+ 
+   input[type=text] {
+      width: 30%;
+      -webkit-transition: width 0.15s ease-in-out;
+      transition: width 0.15s ease-in-out;
+   }
+   input[type=text]:focus {
+     width: 70%;
+   }
+ 
+  #list{
+    font-size:  1.5em;
+    margin-left: 90px;
+   }
+ 
+.animals{
+   display: list-item;    
+  } 
+  .fm{
+width: 90%;
+box-shadow: 5px 5px 8px ;
+justify-content: center;
+margin-left: 30px;
+border-radius: 5px;
+
+
+  }
+</style>
+  <body style="background-color: #070707 ">
+   
+
+
+   
+    <!-- Navbar -->
+
+    {% block carousel %}
+    <!-- ....................................... -->
+    <!-- ......... -->
+    
+    <div  style="position: absolute;text-shadow: 5px 5px 5px ; margin-left: 50px;" style="z-index: 99999;">Movies_add+</div> 
+<iframe height="400px" class="fm"  frameborder="0" name="cat">
+
+</iframe>
+      <div class="htr" style="width: 70%; margin: auto;">
+        <form class="form-inline my-2 my-lg-0">
+         <input id="searchbar" onkeyup="search_animal()" type="text"
+          name="search" placeholder="Search movies...."><img src="https://img.icons8.com/external-kiranshastry-gradient-kiranshastry/34/null/external-search-logistic-delivery-kiranshastry-gradient-kiranshastry.png"/>
+       
+      </div>   {% include 'footer.html' %}
+      <br>
+    <!-- Carousel wrapper -->
+
+   
+    {% endblock carousel %}
+    {% block cardi %}
+    {% endblock cardi %}
+ 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+ 
+    <script>
+function search_animal() {
+    let input = document.getElementById('searchbar').value
+    input=input.toLowerCase();
+    let x = document.getElementsByClassName('col');
+      
+    for (i = 0; i < x.length; i++) { 
+        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+            x[i].style.display="none";
+        }
+        else {
+            x[i].style.display="list-item";                 
+        }
+    }
+}
+    </script>
+   
+      <script text="javascript">
+  $(document).ready(function () {
+      setInterval(function () {
+          document.getElementById("clik").style.display = "block"
+          
+
+      }, 300000)
+     
+
+
+  });
+
+
+    </script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"></script>
+    
+  
+      {% endblock box %}

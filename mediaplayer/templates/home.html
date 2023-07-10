@@ -1,0 +1,50 @@
+{% extends "mm.html" %}
+{% load static %} 
+
+    {% load pwa %}
+    {% progressive_web_app_meta %} 
+  {% block cardi %}
+<style>
+  .tyt{
+   position: relative;
+  }
+</style>
+<div class="tyt" >
+<section id="section" class="h-100 gradient-custom-2">
+  <div class="container py-2 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-12 col-xs-4">
+        <div class="row row-cols-2 row-cols-md-3 g-4">
+          {% for movie in movies %}
+          <div class="col">
+            <div style="border-radius:5px; box-shadow: 5px 5px 5px; background-color: rgba(16, 4, 4, 0.769);" class="card h-100 mt-2">
+                <img style="height: 200px; width: 100%; border-radius: 10px; border: 4px;"
+                class="animate__animated animate__zoomIn" src="{{ movie.thumbnail.url }}" class="card-body" alt="Skyscrapers" />
+                <div class="card-body">
+                  <h5 class="card-title" style="color: azure;">{{movie.title}}</h6>
+                  <p style="color: rgb(147, 15, 15);" class="card-text">
+                    <a  id="tyty" href="{{movie.description | truncatewords:'20'}}" target="cat" ><button id="div2" class="Click-here"  id="div2" type="button"  > WATCH-Download</button></a>
+                  </p> 
+                </div>
+                <div class="card-footer">
+                <small class="text-muted">{{movie.uploaded_at}}</small>
+                </div>
+                <small class="text-muted">     <a  id="tyty" href="{{movie.text}}" target="cat" >{{movie.text}}</a>  </small>
+              </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+<script text="javascript">
+  $(document).ready(function () {
+      setInterval(function () {
+          document.getElementById("git").style.display = "block"
+      }, 900000)
+  });
+
+</script>
+{% endblock cardi %}
